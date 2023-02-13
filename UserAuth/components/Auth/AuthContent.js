@@ -4,8 +4,11 @@ import { Alert, StyleSheet, View } from 'react-native';
 import FlatButton from '../UI/FlatButton';
 import AuthForm from './AuthForm';
 import { Colors } from '../../constants/styles';
+import { useNavigation } from '@react-navigation/native';
 
 function AuthContent({ isLogin, onAuthenticate }) {
+
+  const navigation = useNavigation();
 
   const [credentialsInvalid, setCredentialsInvalid] = useState({
     email: false,
@@ -15,7 +18,13 @@ function AuthContent({ isLogin, onAuthenticate }) {
   });
 
   function switchAuthModeHandler() {
-    // Todo
+    if(isLogin){
+      navigation.replace('Signup')
+    }else{
+      navigation.replace('Login')
+      // navigation.navigate('Login')
+      //navigate ve replace aynı işlemi yapar ama replace kullanırken sayfada ileri geri butonu olmaz
+    }
   }
 
   function submitHandler(credentials) {
