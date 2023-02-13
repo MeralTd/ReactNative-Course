@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
+import Button from '../components/UI/FlatButton';
 
 function WelcomeScreen() {
+  
+
   return (
     <View style={styles.rootContainer}>
       <Text style={styles.title}>Welcome!</Text>
